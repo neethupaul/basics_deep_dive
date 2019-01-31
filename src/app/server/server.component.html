@@ -1,0 +1,29 @@
+{{serverId}}
+<BR>
+  <BR>
+    <BR>
+
+<p *ngIf = "serverStatus === 'Online'; else Offline" [ngStyle] = "{backgroundColor: getColour()}" > Server Status is : {{serverStatus}}  </p>
+<BR>
+  <ng-template #Offline>  <p [ngStyle] = "{backgroundColor: getColour()}"> Server Status is : {{serverStatus}} </p> </ng-template>
+  <BR>
+
+<BR>
+  <input type="text"  (input)="OnInputServer($event)" [(ngModel)] = "serverName" >
+  <button type="button" class="btn btn-primary" [disabled] = "!allowNewServer" (click) = "OnClickServer()" >Add Server</button>
+
+  {{serverCreationStatus}}
+  <BR>
+    {{serverName}}
+
+<BR>
+  <BR>
+
+    <input type="text"  [(ngModel)] = "userName" >
+<BR>
+    {{userName}}
+
+    <BR>
+      <button type="button" class="btn btn-primary" [disabled] = "(userName.length <= 0)" (click) = "OnClickUser()"  >
+        Add User</button>
+
